@@ -6,7 +6,6 @@ module Api
       # GET /movies or /movies.json
       def index
         @movies = Movie.all
-
         respond_to do |format|
           format.html
           format.json { render json: @movies }

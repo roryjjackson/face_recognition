@@ -2,25 +2,19 @@ import React from 'react'
 
 export class FaceDetection extends React.Component {
 
-  constructor() {
-     super();
+  constructor(props) {
+     super(props);
      this.state = {
       face_detection: []
     };
    }
 
    componentDidMount(){
-    fetch("/api/v1/face_detection"
-    // , {
-    //   // headers: {
-    //   //   Accept: 'application/json'
-    //   // }
-    // }
-    )
+    fetch("/api/v1/face_detection")
     .then(resp => resp.json())
     .then(data => {
       this.setState({
-        face_detection: data
+        face_detection: data.result
       })
     })
     .catch(error => console.log(error))
@@ -29,7 +23,9 @@ export class FaceDetection extends React.Component {
   render() {
     return (
       <div>
-        {this.state.face_detection[0].name}
+        {this.state.face_detection.map(resp => (
+        <p key={resp.id}>{resp.name}</p>
+      ))}
       </div>
   )
 }
