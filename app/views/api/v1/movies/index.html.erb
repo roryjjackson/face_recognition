@@ -6,9 +6,9 @@
   <% @movies.each do |movie| %>
     <%= render movie %>
     <p>
-      <%= link_to "Show this movie", movie %>
+      <%= link_to "Show this movie", api_v1_movie_path(movie.id) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
+<%= link_to "New movie", new_api_v1_movie_path %>

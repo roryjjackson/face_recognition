@@ -7,11 +7,10 @@ module Api
       def index
         @movies = Movie.all
 
-        # respond_to do |format|
-        #   format.html { render :index }
-        #   format.json { render json: @movies }
-        #   format.any  { head :not_acceptable }
-        # end
+        respond_to do |format|
+          format.html
+          format.json { render json: @movies }
+        end
       end
 
       # GET /movies/1 or /movies/1.json
