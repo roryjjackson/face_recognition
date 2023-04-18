@@ -9,9 +9,8 @@ module Api
       # GET /celebrities or /celebrities.json
       def index
         @celebrities = Celebrity.all
-        # raise
 
-      # def index
+
         url = URI("https://celebrity-face-detection.p.rapidapi.com/")
 
         http = Net::HTTP.new(url.host, url.port)
@@ -29,7 +28,6 @@ module Api
         puts response.read_body
         response_body = response.body.to_s
         @celebrities = JSON.parse(response.body)
-      # # end
 
         respond_to do |format|
           format.html
