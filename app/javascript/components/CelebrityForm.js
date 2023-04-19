@@ -4,7 +4,7 @@ function CelebrityForm() {
   const [name, setName] = useState('');
   const [value, setValue] = useState('');
   const [appId, setAppId] = useState('');
-  const [photo, setPhoto] = useState(null);
+  // const [photo, setPhoto] = useState(null);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -15,7 +15,7 @@ function CelebrityForm() {
     formData.append('celebrity[name]', name);
     formData.append('celebrity[value]', value);
     formData.append('celebrity[app_id]', appId);
-    formData.append('celebrity[photo]', photo);
+    // formData.append('celebrity[photo]', photo);
 
     fetch('/api/v1/celebrities', {
       method: 'POST',
@@ -30,9 +30,9 @@ function CelebrityForm() {
     .catch(error => console.error(error));
   }
 
-  function handleFileChange(event) {
-    setPhoto(event.target.files[0]);
-  }
+  // function handleFileChange(event) {
+  //   setPhoto(event.target.files[0]);
+  // }
 
   return (
     <form onSubmit={handleSubmit} enctype="multipart/form-data">
@@ -51,11 +51,11 @@ function CelebrityForm() {
         <input type="text" value={appId} onChange={event => setAppId(event.target.value)} />
       </label>
       <br />
-      <label>
+      {/* <label>
         Photo:
         <input type="file" onChange={handleFileChange} />
       </label>
-      <br />
+      <br /> */}
       <input type="submit" value="Submit" />
     </form>
   );
