@@ -82,7 +82,7 @@ module Api
 
         # Only allow a list of trusted parameters through.
         def celebrity_params
-          params.require(:celebrity).permit(:name, :value, :app_id)
+          params.require(:celebrity).permit(:name, :value, :app_id, :photo)
         end
     end
   end
